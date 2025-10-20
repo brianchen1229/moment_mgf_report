@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparing Numerical Methods for Moment Calculation in the Bivariate Normal MGF</title>
+  <meta name="description" content="Compare numerical methods and step sizes using the bivariate normal MGF to estimate moments and correlation." />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {font-family: Inter, Arial, sans-serif; margin:0; background:#fff; color:#222; line-height:1.6}
+    .container {max-width:900px; margin:0 auto; padding:40px 20px}
+    .card {background:#f9f9f9; border:1px solid #e0e0e0; border-radius:12px; padding:24px; margin:20px 0}
+    .btn {display:inline-block; padding:10px 18px; background:#1976d2; color:#fff; border-radius:8px; text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="text-align:center; margin-bottom:32px;">
+      <h1>Numerical Differentiation via the Bivariate Normal MGF</h1>
+      <p class="lead">A brief English version of this project. The full report (in Mandarin) is available below. </p>
+      <a class="btn" href="Moment_MGF.pdf" download>📄 Download Full Report (PDF)</a>
+    </header>
+
+    <section class="card">
+      <h2>Abstract</h2>
+      <p>
+        Numerical differentiation on computers is subject to both truncation and rounding errors; 
+        therefore, reducing the step size \(h\) does not necessarily decrease the total error. 
+        This study explores this trade-off using the moment-generating function (MGF) of a bivariate 
+        normal distribution as a test function and compares two numerical methods: 
+        the three-point and five-point formulas. Overall, accurate results are obtained when 
+        \(h\) lies between \(10^{-7}\) and \(10^{-3}\); beyond this range, both formulas become 
+        unstable, with the five-point differentiation formula exhibiting instability more readily 
+        than the three-point formula.
+      </p>
+    </section>
+
+    <footer style="text-align:center; margin-top:40px;">
+      <p>© 2025 Brian Chen • <a href="Moment_MGF.pdf">PDF</a></p>
+    </footer>
+  </div>
+</body>
+</html>
