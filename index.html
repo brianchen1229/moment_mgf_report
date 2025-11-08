@@ -36,6 +36,77 @@
       </p>
     </section>
 
+    <section class="card">
+      <h2>Motivation</h2>
+      <p>
+        When performing numerical differentiation on a computer, significant errors can arise when dealing with extremely large or small values due to the limitations of floating-point arithmetic. Therefore, unlike in calculus, where the derivative is defined as
+      </p>
+      <p style="text-align:center; margin: 12px 0;">
+        \[
+          f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h},
+        \]
+      </p>
+      <p>
+        decreasing the step size \(h\) indefinitely does not necessarily lead to more accurate results. In fact, taking \(h\) too small can increase rounding errors and cause numerical instability.
+      </p>
+      <p>
+        This project investigates how different step sizes affect the accuracy of numerical differentiation by comparing computed results with true values. The goal is to identify the range of \(h\) that minimizes total error. Additionally, the study compares several finite-difference formulas, specifically the two-point, three-point, and five-point methods, to determine which provides the most reliable approximation under various step sizes.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Experimental Setup</h2>
+      <p>
+        We consider a bivariate normal distribution \((X,Y)\sim BN(\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho)\)
+        with parameters \(\mu_X=5\), \(\mu_Y=4\), \(\sigma_X^2=16\), \(\sigma_Y^2=25\), and \(\rho=0.5\).
+        The corresponding moment-generating function (MGF) is:
+      </p>
+    
+      <p style="text-align:center; margin: 12px 0;">
+        \[
+          M(t_1,t_2) = \exp\!\Bigg[
+            5t_1 + 4t_2 +
+            \frac{1}{2}\big(16t_1^2 + 2\times 0.5\times 4\times 5\, t_1 t_2 + 25t_2^2\big)
+          \Bigg],\quad t_1,t_2\in\mathbb{R}.
+        \]
+      </p>
+    
+      <p>
+        We use finite-difference formulas to approximate the derivatives of the MGF
+        around \((t_1,t_2)=(0,0)\) in order to estimate the moments such as \(E[X]\) and \(E[X^2]\).
+        The following formulas are applied.
+      </p>
+    
+      <h3>First Derivative (for \(E[X]\))</h3>
+    
+      <p><em>Two-point (forward difference):</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[ E(X) \approx \frac{M(0+h,0)-M(0,0)}{h}. \]
+      </p>
+    
+      <p><em>Three-point (central difference):</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[ E(X) \approx \frac{M(0+h,0)-M(0-h,0)}{2h}. \]
+      </p>
+    
+      <p><em>Five-point (central difference):</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[ E(X) \approx \frac{M(0-2h,0)-8M(0-h,0)+8M(0+h,0)-M(0+2h,0)}{12h}. \]
+      </p>
+    
+      <h3>Second Derivative (for \(E[X^2]\))</h3>
+    
+      <p><em>Three-point formula:</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[ E(X^2) \approx \frac{M(0-h,0)-2M(0,0)+M(0+h,0)}{h^2}. \]
+      </p>
+    
+      <p><em>Five-point formula:</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[ E(X^2) \approx \frac{-M(0-2h,0)+16M(0-h,0)-30M(0,0)+16M(0+h,0)-M(0+2h,0)}{h^2}. \]
+      </p>
+    </section>
+
     <footer style="text-align:center; margin-top:40px;">
       <p>© 2025 Brian Chen • <a href="moment.pdf">PDF</a></p>
     </footer>
