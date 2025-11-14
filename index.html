@@ -171,15 +171,15 @@
     \(\mathrm{Var}(X)\), \(\mathrm{Var}(Y)\), and the mixed moment \(E[XY]\) (used to compute
     the correlation coefficient). Figures 1 and 2 evaluate the three-point and five-point
     finite-difference formulas for the second derivatives, while Figure 3 compares the two
-    mixed-partial finite-difference schemes for estimating the correlation.
+    mixed-partial finite-difference methods for calculating the correlation.
   </p>
 
-  <h3>1. Variance Estimation</h3>
+  <h3>1. Variance Calculation</h3>
 
   <p>
-    Figures 1 and 2 show the estimated values of \(\mathrm{Var}(X)\) and \(\mathrm{Var}(Y)\)
+    Figures 1 and 2 show the calculated values of \(\mathrm{Var}(X)\) and \(\mathrm{Var}(Y)\)
     using both the three-point and five-point finite-difference formulas.
-    When the step size \(h\) lies between approximately \(10^{-2}\) and \(10^{-7}\),
+    When the step size \(h\) lies between approximately \(10^{-3}\) and \(10^{-7}\),
     both methods produce results that are very close to the true values.
     For larger step sizes (around \(10^{-2}\)), the three-point method tends to deviate
     more from the true variance compared to the five-point method.
@@ -190,31 +190,31 @@
 
   <figure style="text-align:center; margin:16px 0;">
     <img src="varx.png" alt="Variance of X" style="max-width:95%;">
-    <figcaption>Figure 1. Numerical estimation of \(\mathrm{Var}(X)\) using three-point and five-point formulas.</figcaption>
+    <figcaption>Figure 1. Numerical calculation of \(\mathrm{Var}(X)\) using three-point and five-point formulas.</figcaption>
   </figure>
 
   <figure style="text-align:center; margin:16px 0;">
     <img src="vary.png" alt="Variance of Y" style="max-width:95%;">
-    <figcaption>Figure 2. Numerical estimation of \(\mathrm{Var}(Y)\) using three-point and five-point formulas.</figcaption>
+    <figcaption>Figure 2. Numerical calculation of \(\mathrm{Var}(Y)\) using three-point and five-point formulas.</figcaption>
   </figure>
 
   <h3>2. Correlation Estimation</h3>
 
   <p>
-    For estimating the correlation coefficient, two mixed-partial finite-difference
-    schemes were tested. As shown in Figure 3, when the step size \(h\) is in the range
-    \(10^{-2}\) to \(10^{-7}\), both methods provide estimates that are highly accurate.
+    For calculating the correlation coefficient, two partial finite-difference
+    methods were evaluated. As shown in Figure 3, when the step size \(h\) is in the range
+    \(10^{-3}\) to \(10^{-7}\), both methods provide estimates that are highly accurate.
     However, when \(h\) becomes smaller than \(10^{-8}\), the numerical results deteriorate
     and the first scheme becomes unstable.
     For very small or relatively large values of \(h\), the second method produces
     noticeably smaller errors than the first method.
-    Therefore, the second mixed-partial formula is generally more robust and delivers
+    Therefore, the second partial formula is generally more robust and delivers
     more accurate estimates for the correlation coefficient.
   </p>
 
   <figure style="text-align:center; margin:16px 0;">
     <img src="phi.png" alt="Correlation estimation" style="max-width:95%;">
-    <figcaption>Figure 3. Numerical estimation of the correlation coefficient using two mixed-partial formulas.</figcaption>
+    <figcaption>Figure 3. Numerical calculation of the correlation coefficient using two mixed-partial formulas.</figcaption>
   </figure>
 
   <h3>Summary</h3>
@@ -223,7 +223,7 @@
     Across all experiments, the finite-difference methods demonstrate excellent numerical
     accuracy when the step size \(h\) lies within the interval \(10^{-7}\) to \(10^{-3}\).
     Within this range, all formulas—whether for first derivatives, second derivatives,
-    or mixed partials—produce highly stable and reliable estimates of the corresponding
+    or partials—produce highly stable and reliable estimates of the corresponding
     moments, variances, and correlation coefficients.
   </p>
 </section>
