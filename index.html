@@ -78,35 +78,60 @@
       </p>
     
       <h3>First Derivative (for \(E[X]\))</h3>
-    
-      <p><em>Two-point (forward difference):</em></p>
-      <p style="text-align:center; margin: 8px 0;">
-        \[ E(X) \approx \frac{M(0+h,0)-M(0,0)}{h}. \]
-      </p>
-    
-      <p><em>Three-point (central difference):</em></p>
-      <p style="text-align:center; margin: 8px 0;">
-        \[ E(X) \approx \frac{M(0+h,0)-M(0-h,0)}{2h}. \]
-      </p>
-    
+
       <p><em>Five-point (central difference):</em></p>
       <p style="text-align:center; margin: 8px 0;">
         \[ E(X) \approx \frac{M(0-2h,0)-8M(0-h,0)+8M(0+h,0)-M(0+2h,0)}{12h}. \]
+
+        \[ E(Y) \approx \frac{M(0,0-2h)-8M(0,0-h)+8M(0,0+h)-M(0,0+2h)}{12h}. \]
       </p>
-    
+      
       <h3>Second Derivative (for \(E[X^2]\))</h3>
     
       <p><em>Three-point formula:</em></p>
       <p style="text-align:center; margin: 8px 0;">
         \[ E(X^2) \approx \frac{M(0-h,0)-2M(0,0)+M(0+h,0)}{h^2}. \]
+
+        \[ E(Y^2) \approx \frac{M(0,0-h)-2M(0,0)+M(0,0+h)}{h^2}. \]
       </p>
     
       <p><em>Five-point formula:</em></p>
       <p style="text-align:center; margin: 8px 0;">
         \[ E(X^2) \approx \frac{-M(0-2h,0)+16M(0-h,0)-30M(0,0)+16M(0+h,0)-M(0+2h,0)}{h^2}. \]
+
+        \[ E(Y^2) \approx \frac{-M(0,0-2h)+16M(0,0-h)-30M(0,0)+16M(0,0+h)-M(0,0+2h)}{h^2}. \]
       </p>
     </section>
 
+    <h3>Partial Derivative (for \(E[XY]\))</h3>
+
+      <p>
+        To approximate the mixed moment \(E[XY]\), we compute the mixed partial
+        derivative \(\frac{\partial^2 M}{\partial t_1\,\partial t_2}\big|_{(0,0)}\)
+        using finite-difference formulas. Two commonly used schemes are listed below.
+      </p>
+      
+      <p><em>Formula 1:</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[
+          E(XY) \approx
+          \frac{
+            M(h,0+k) - M(h,0) - M(0,k) + 2M(0,0)
+            - M(-h,0) - M(0,-k) + M(-h,-k)
+          }{2hk}.
+        \]
+      </p>
+      
+      <p><em>Formula 2:</em></p>
+      <p style="text-align:center; margin: 8px 0;">
+        \[
+          E(XY) \approx
+          \frac{
+            M(h, k) - M(h, -k)
+            - M(-h, k) + M(-h, -k)
+          }{4hk}.
+        \]
+      </p>
     <footer style="text-align:center; margin-top:40px;">
       <p>© 2025 Brian Chen • <a href="moment.pdf">PDF</a></p>
     </footer>
