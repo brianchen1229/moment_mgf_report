@@ -101,7 +101,6 @@
 
         \[ E(Y^2) \approx \frac{-M(0,0-2h)+16M(0,0-h)-30M(0,0)+16M(0,0+h)-M(0,0+2h)}{h^2}. \]
       </p>
-    </section>
 
     <h3>Partial Derivative (for \(E[XY]\))</h3>
 
@@ -132,6 +131,41 @@
           }{4hk}.
         \]
       </p>
+
+      <p>
+      When the step size \(h\) is sufficiently small, the finite-difference
+      formulas above provide accurate approximations of \(E(X^2)\) and \(E(Y^2)\).
+      Using these approximations, the variances of \(X\) and \(Y\) can be computed via
+      </p>
+      
+      <p style="text-align:center; margin: 8px 0;">
+        \[
+          \mathrm{Var}(X) = E(X^2) - (E(X))^2,
+          \qquad
+          \mathrm{Var}(Y) = E(Y^2) - (E(Y))^2.
+        \]
+      </p>
+      
+      <p>
+        Similarly, when the step sizes \(h\) and \(k\) are small enough, the mixed
+        finite-difference formulas yield a reliable approximation of \(E(XY)\).
+      </p>
+      
+      <p style="text-align:center; margin: 8px 0;">
+        \[
+          \rho =
+          \frac{E(XY) - E(X)E(Y)}
+               {\sqrt{\mathrm{Var}(X)\,\mathrm{Var}(Y)}}.
+        \]
+      </p>
+      
+      <p>
+        This allows us to compute the correlation coefficient between \(X\) and \(Y\).
+      </p>
+
+
+
+      
     <footer style="text-align:center; margin-top:40px;">
       <p>© 2025 Brian Chen • <a href="moment.pdf">PDF</a></p>
     </footer>
